@@ -6,7 +6,7 @@ on:
       - "v*"
 
 env:
-  PROJECT_PATH: .\GetuliOCR\GetuliOCR.csproj
+  PROJECT_PATH: ./GetuliOCR/GetuliOCR.csproj
   ZIP_PATH: GetuliOCR.zip
   EXE_PATH: ./app/GetuliOCR.exe
 
