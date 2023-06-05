@@ -7,12 +7,15 @@ using Xceed.Words.NET;
 var configurationBuilder = new ConfigurationBuilder().AddJsonFile($"appsettings.json");
 var config = configurationBuilder.Build();
 
-string inputDirectoryName = config["inputDirectoryName"] ?? throw new ArgumentNullException();
-string outputDirectoryName = config["outputDirectoryName"] ?? throw new ArgumentNullException();
-string projectId = config["projectId"] ?? throw new ArgumentNullException();
-string locationId = config["locationId"] ?? throw new ArgumentNullException();
-string processorId = config["processorId"] ?? throw new ArgumentNullException();
-string mimeType = "application/pdf";
+#pragma warning disable CA2208 // Instantiate argument exceptions correctly
+string inputDirectoryName = config["inputDirectoryName"] ?? throw new ArgumentNullException("inputDirectoryName");
+string outputDirectoryName = config["outputDirectoryName"] ?? throw new ArgumentNullException("outputDirectoryName");
+string projectId = config["projectId"] ?? throw new ArgumentNullException("projectId");
+string locationId = config["locationId"] ?? throw new ArgumentNullException("locationId");
+string processorId = config["processorId"] ?? throw new ArgumentNullException("processorId");
+#pragma warning restore CA2208 // Instantiate argument exceptions correctly
+
+const string mimeType = "application/pdf";
 
 try
 {
