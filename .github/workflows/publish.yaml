@@ -7,8 +7,8 @@ on:
 
 env:
   PROJECT_PATH: .\GetuliOCR\GetuliOCR.csproj
-  ZIP_PATH: .\app\GetuliOCR.zip
-  EXE_PATH: .\app\GetuliOCR.exe
+  ZIP_PATH: GetuliOCR.zip
+  EXE_PATH: ./app/GetuliOCR.exe
 
 jobs:
   build:
@@ -26,7 +26,7 @@ jobs:
         run: dotnet publish ${{ env.PROJECT_PATH }} -c Release --self-contained -r win-x64 -p:PublishSingleFile=true -o app
 
       - name: Create Zip File
-        uses: papeloto/action-zip@v1
+        uses: vimtor/action-zip@v1
         with:
           files: ${{ env.EXE_PATH }}
           dest: ${{ env.ZIP_PATH }}
